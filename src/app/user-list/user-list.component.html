@@ -1,0 +1,75 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+ 
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+<div class="panel panel-primary" id="userList">
+  <div class="panel-heading">
+    <h2>User List</h2>
+  </div>
+  <div class="panel-body">
+   <div class="col-md-4" style="float: right;">
+      <input type="text"
+          [(ngModel)]="filters.keyword"
+          name="keyword"
+          (input)="listUsers()" 
+          class="form-control"
+          placeholder="Search..." style="font-size: 15px;"/>
+  </div> 
+  <select class="mdb-select md-form" (change)="selectChangeHandler($event)" style="float: right; width: 150px; height: 35px; font-size: 15px;">
+    <option value="">--Search by which--</option>
+    <option value="firstName">Search By First Name</option>
+    <option value="city">Search By City</option>
+    <option value="lastName">Search By Last Name</option>
+    <option value="zipCode">Search By Zip Code</option>
+    <option value="email">Search By Email</option>
+    <option value="state">Search By State</option>
+    <option value="country">Search By Country</option>
+</select>
+<!-- <div class="form-group" (change)="selectChangeHandler($event)" style="float: right; width: 120px;">
+  <select class="form-control" id="sel1">
+    <option value="" style="font-size: 15px;">----Search by which----</option>
+    <option value="firstName" style="font-size: 15px;">Search By First Name</option>
+    <option value="city" style="font-size: 15px;">Search By City</option>
+  </select>
+</div> -->
+  <!-- <input type="text" id="searchTextId" [(ngModel)]="searchText" name="searchText" placeholder="Search By Name"> -->
+  <table class="table table-hover table-responsive-md">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Country</th>
+          <th>Zip Code</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users1 ">
+          <td>{{user.id}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phoneNumber}}</td>
+          <td>{{user.city}}</td>
+          <td>{{user.state}}</td>
+          <td>{{user.country}}</td>
+          <td>{{user.zipCode}}</td>
+          <td>
+            <div class="btn-group">
+            <button (click)="deleteUser(user.id)" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Delete" ><i class="material-icons">delete</i></button> <br>
+              <button (click)="updateUser(user.id)" class="btn btn-warning  btn-sm" data-toggle="tooltip" data-placement="top" title="Edit" style="margin-left: 10px; "><i class="material-icons">edit</i></button>
+              <button (click)="userDetails(user.id)" class="btn btn-info  btn-sm" data-toggle="tooltip" data-placement="top" title="Details" style="margin-left: 10px; "><i class="material-icons">info</i></button>
+              </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

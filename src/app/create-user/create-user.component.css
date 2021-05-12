@@ -1,0 +1,22 @@
+.create{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+input.ng-untouched{
+    background-color:whitesmoke;
+    border-color: darkgoldenrod;
+}
+input.ng-touched{
+    border-color: 2px blue solid;
+}
+input.ng-dirty{
+    border: 2px aqua;
+}
+input.ng-invalid{
+    border:  2px solid #a94442;
+}
+input.ng-valid{
+    border: 2px solid #42A948;
+}
+#no-drop[disabled]{
+    cursor: no-drop;
+}
